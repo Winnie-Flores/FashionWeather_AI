@@ -1,0 +1,354 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --moss-500: 110, 171, 71;
+    --sage-400: 145, 168, 136;
+    --forest-600: 53, 96, 64;
+    --sky-400: 110, 171, 219;
+    --linen-200: 245, 235, 224;
+    --earth-400: 191, 128, 130;
+    --sunrise-400: 255, 155, 68;
+  }
+
+  * {
+    @apply border-sage-200;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-gradient-nature text-gray-800 antialiased;
+    font-family: 'Nunito', 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif;
+  }
+
+  /* 自然滚动条 */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-sage-50;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-sage-300 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-sage-400;
+  }
+}
+
+@layer components {
+  /* ========== 自然卡片 ========== */
+  .nature-card {
+    @apply bg-white/80 backdrop-blur-md border border-sage-200/50 rounded-leaf 
+           shadow-card hover:shadow-lifted transition-all duration-300;
+  }
+
+  .glass-card {
+    @apply nature-card p-5;
+  }
+
+  /* ========== 渐变背景 ========== */
+  .gradient-bg {
+    @apply bg-gradient-to-br from-moss-500 via-sage-400 to-forest-600;
+  }
+
+  .gradient-hero {
+    @apply bg-gradient-to-br from-linen-100 via-sage-50 to-sky-100;
+  }
+
+  /* ========== 按钮样式 ========== */
+  .btn-primary {
+    @apply bg-gradient-to-r from-moss-500 to-forest-600 text-white 
+           px-6 py-3 rounded-organic font-medium
+           shadow-warm hover:shadow-lifted
+           hover:brightness-105 active:brightness-95
+           transform hover:-translate-y-0.5 active:translate-y-0 
+           transition-all duration-200;
+  }
+
+  .btn-secondary {
+    @apply bg-white/90 backdrop-blur-sm text-sage-700 px-6 py-3 rounded-organic font-medium
+           border border-sage-200 hover:bg-white hover:border-sage-300
+           shadow-card hover:shadow-soft
+           transform hover:-translate-y-0.5 active:translate-y-0 
+           transition-all duration-200;
+  }
+
+  .btn-ghost {
+    @apply text-sage-700 px-4 py-2 rounded-organic font-medium
+           hover:bg-sage-100 active:bg-sage-200
+           transition-all duration-150;
+  }
+
+  /* ========== 输入框样式 ========== */
+  .input-field {
+    @apply w-full px-4 py-3 rounded-organic bg-white/80 backdrop-blur-sm 
+           border border-sage-200
+           focus:border-moss-400 focus:ring-2 focus:ring-moss-400/20 focus:bg-white
+           outline-none placeholder:text-mist-400
+           transition-all duration-200;
+  }
+
+  /* ========== 标题样式 ========== */
+  .section-title {
+    @apply text-2xl font-bold text-forest-800 mb-6 flex items-center gap-3;
+  }
+
+  /* ========== 标签样式 ========== */
+  .tag {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium
+           bg-sage-100 text-forest-700 border border-sage-200;
+  }
+
+  .tag-warm {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium
+           bg-linen-200 text-earth-700 border border-linen-300;
+  }
+
+  .tag-sky {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium
+           bg-sky-100 text-sky-700 border border-sky-200;
+  }
+
+  /* ========== 评分星星 ========== */
+  .star {
+    @apply text-sunrise-400;
+  }
+
+  /* ========== 页面容器 ========== */
+  .page-container {
+    @apply min-h-screen pb-20;
+  }
+
+  /* ========== 装饰元素 ========== */
+  .leaf-decoration {
+    @apply absolute w-32 h-32 opacity-10 pointer-events-none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%2345a049' d='M50 5C25 5 5 30 5 60c0 20 10 35 25 40 10-15 20-25 20-40 0 15 10 25 20 40 15-5 25-20 25-40C95 30 75 5 50 5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  /* ========== 场景氛围 ========== */
+  .atmosphere-sunny {
+    @apply from-sunrise-100 via-linen-100 to-sage-50;
+  }
+
+  .atmosphere-cloudy {
+    @apply from-mist-100 via-mist-50 to-sage-50;
+  }
+
+  .atmosphere-rainy {
+    @apply from-sky-100 via-sky-50 to-mist-50;
+  }
+
+  .atmosphere-night {
+    @apply from-forest-800 via-forest-700 to-sage-900;
+  }
+}
+
+@layer utilities {
+  /* 文字渐变 */
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-forest-600 via-moss-500 to-sage-600;
+  }
+
+  .text-gradient-warm {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-sunrise-400 via-earth-400 to-linen-500;
+  }
+
+  /* 滚动条隐藏 */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* 文字描边效果 */
+  .text-outline {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  /* 自然分隔线 */
+  .natural-divider {
+    @apply h-px bg-gradient-to-r from-transparent via-sage-300 to-transparent;
+  }
+
+  /* 柔和光照效果 */
+  .soft-glow {
+    box-shadow: 0 0 40px rgba(110, 171, 71, 0.1);
+  }
+}
+
+/* ========== 天气动画背景 ========== */
+.weather-bg-sunny {
+  background: linear-gradient(135deg, #ffefdb 0%, #ffd9af 25%, #fff8f0 50%, #e9efe6 75%, #f4f9fd 100%);
+  background-size: 400% 400%;
+  animation: gradient-sunny 15s ease infinite;
+}
+
+.weather-bg-cloudy {
+  background: linear-gradient(135deg, #f1f4f6 0%, #e2e8ed 30%, #ccd6de 60%, #f1f4f6 100%);
+  background-size: 400% 400%;
+  animation: gradient-cloudy 20s ease infinite;
+}
+
+.weather-bg-rainy {
+  background: linear-gradient(135deg, #f4f9fd 0%, #c8e1f3 30%, #9ec9e8 60%, #6eabdb 100%);
+  background-size: 400% 400%;
+  animation: gradient-rainy 12s ease infinite;
+}
+
+.weather-bg-night {
+  background: linear-gradient(135deg, #1f3427 0%, #2b4d34 30%, #365525 60%, #1f3427 100%);
+  background-size: 400% 400%;
+  animation: gradient-night 20s ease infinite;
+}
+
+@keyframes gradient-sunny {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes gradient-cloudy {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes gradient-rainy {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes gradient-night {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ========== 雨天动画 ========== */
+.rain-animation {
+  background: linear-gradient(to bottom, #f4f9fd, #c8e1f3, #9ec9e8);
+}
+
+/* ========== 雪花动画 ========== */
+.snow-animation {
+  background: linear-gradient(to bottom, #f8fafb, #e2e8ed, #ccd6de);
+}
+
+/* ========== 阳光粒子 ========== */
+.sun-rays {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 223, 180, 0.4) 0%, rgba(255, 200, 150, 0.2) 30%, transparent 60%);
+  animation: pulse-slow 4s ease-in-out infinite;
+}
+
+/* ========== 加载动画 ========== */
+.loading-dots {
+  display: flex;
+  gap: 4px;
+}
+
+.loading-dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: bounce-nature 1.4s infinite ease-in-out both;
+}
+
+.loading-dots span:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.loading-dots span:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+@keyframes bounce-nature {
+  0%, 80%, 100% {
+    transform: scale(0.6);
+    opacity: 0.6;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ========== 植物装饰动画 ========== */
+@keyframes sway-gentle {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+
+.sway-animation {
+  animation: sway-gentle 4s ease-in-out infinite;
+}
+
+/* ========== 呼吸动画 ========== */
+@keyframes breathe-nature {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.05); opacity: 1; }
+}
+
+.breathe-animation {
+  animation: breathe-nature 4s ease-in-out infinite;
+}
+
+/* ========== 漂浮动画 ========== */
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  25% { transform: translateY(-5px) translateX(3px); }
+  50% { transform: translateY(-10px) translateX(0); }
+  75% { transform: translateY(-5px) translateX(-3px); }
+}
+
+.float-gentle {
+  animation: float-gentle 6s ease-in-out infinite;
+}
+
+/* ========== 渐入动画 ========== */
+@keyframes fade-in-up {
+  0% { 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+
+/* ========== 减少动画模式 ========== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
