@@ -1,4 +1,4 @@
-# FashionWeather AI - 智能天气穿搭助手
+# FashionWeather AI - 智能穿搭助手
 
 基于天气感知与多模态衣橱管理的智能穿搭推荐系统
 
